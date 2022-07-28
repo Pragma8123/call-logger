@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "lint": "eslint src/*.ts",
-    "lint:fix": "eslint --fix src/*.ts"
+    "lint:fix": "eslint --fix src/*.ts",
+    "deploy-dev": "npm run build && firebase deploy --project call-logger-dev",
+    "deploy-prod": "npm run build && firebase deploy --project call-logger-prod"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.1",
