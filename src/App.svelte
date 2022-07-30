@@ -3,7 +3,6 @@
   import { signInWithPopup, GoogleAuthProvider, signOut, type User } from 'firebase/auth';
   import { authState } from 'rxfire/auth';
   import type { Observable } from 'rxjs';
-
   import Profile from './lib/Profile.svelte';
 
   let user: Observable<User> = authState(auth);

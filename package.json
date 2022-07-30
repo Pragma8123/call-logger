@@ -4,14 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "MODE=development vite",
+    "build:dev": "MODE=development vite build",
+    "build:prod": "MODE=production vite build",
+    "preview": "MODE=development vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "lint": "eslint src/*.ts",
-    "lint:fix": "eslint --fix src/*.ts",
-    "deploy-dev": "npm run build && firebase deploy --project call-logger-dev",
-    "deploy-prod": "npm run build && firebase deploy --project call-logger-prod"
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint --fix src/**/*.ts",
+    "deploy:dev": "npm run build:dev && firebase deploy --project dev",
+    "deploy:prod": "npm run build:prod && firebase deploy --project prod"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.1",

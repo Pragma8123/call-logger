@@ -2,13 +2,16 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore/lite';
 
+console.log(import.meta.env);
+
 const firebaseConfig = {
-  apiKey: 'AIzaSyCWbibxSn4B1vWMJ08k-w2FyOD2px8prKU',
-  authDomain: 'call-logger-dev.firebaseapp.com',
-  projectId: 'call-logger-dev',
-  storageBucket: 'call-logger-dev.appspot.com',
-  messagingSenderId: '1098555473142',
-  appId: '1:1098555473142:web:5eccc59392adfafb0c40d7',
+  apiKey: import.meta.env.FIREBASE_API_KEY,
+  authDomain: import.meta.env.FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.FIREBASE_APP_ID,
+  measurementId: import.meta.env.FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
