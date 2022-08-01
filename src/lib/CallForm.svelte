@@ -37,52 +37,54 @@
   }
 </script>
 
-<!-- Phone Number -->
-<div class="field">
-  <label for="call-number" class="label">Phone</label>
-  <div class="control">
-    <input id="call-number" class="input" type="tel" placeholder="(317) 867-5309" bind:value={phoneNumber}>
+<form on:submit|preventDefault={submit}>
+  <!-- Phone Number -->
+  <div class="field">
+    <label for="call-number" class="label">Phone</label>
+    <div class="control">
+      <input id="call-number" class="input" type="tel" placeholder="(317) 867-5309" bind:value={phoneNumber}>
+    </div>
   </div>
-</div>
 
-<!-- Call Duration -->
-<div class="field">
-  <label for="call-duration" class="label">Call Duration</label>
-  <div class="control">
-    <input id="call-duration" class="input" type="text" placeholder="15:00" bind:value={talkTime}>
+  <!-- Call Duration -->
+  <div class="field">
+    <label for="call-duration" class="label">Call Duration</label>
+    <div class="control">
+      <input id="call-duration" class="input" type="text" placeholder="15:00" bind:value={talkTime}>
+    </div>
   </div>
-</div>
 
-<!-- Date -->
-<div class="field">
-  <label for="call-date" class="label">Date</label>
-  <div class="control">
-    <input id="call-date" class="input" type="date" bind:value={date}>
+  <!-- Date -->
+  <div class="field">
+    <label for="call-date" class="label">Date</label>
+    <div class="control">
+      <input id="call-date" class="input" type="date" bind:value={date}>
+    </div>
   </div>
-</div>
 
-<!-- Name -->
-<div class="field">
-  <label for="call-name" class="label">Name</label>
-  <div class="control">
-    <input id="call-name" class="input" type="text" placeholder={randomName} bind:value={callerName}>
+  <!-- Name -->
+  <div class="field">
+    <label for="call-name" class="label">Name</label>
+    <div class="control">
+      <input id="call-name" class="input" type="text" placeholder={randomName} bind:value={callerName}>
+    </div>
   </div>
-</div>
 
-<!-- Description -->
-<div class="field">
-  <label for="call-description" class="label">Description</label>
-  <div class="control">
-    <input id="call-description" class="input" type="text" placeholder="Existing ticket..." bind:value={description}>
+  <!-- Description -->
+  <div class="field">
+    <label for="call-description" class="label">Description</label>
+    <div class="control">
+      <input id="call-description" class="input" type="text" placeholder="Existing ticket..." bind:value={description}>
+    </div>
   </div>
-</div>
 
-<!-- Submit or Cancel Buttons -->
-<div class="field is-grouped">
-  <div class="control">
-    <button on:click={submit} class="button is-link">Submit</button>
+  <!-- Submit or Cancel Buttons -->
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link">Submit</button>
+    </div>
+    <div class="control">
+      <button on:click={reset} class="button is-link is-light">Cancel</button>
+    </div>
   </div>
-  <div class="control">
-    <button on:click={reset} class="button is-link is-light">Cancel</button>
-  </div>
-</div>
+</form>
