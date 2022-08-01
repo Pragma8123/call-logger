@@ -42,7 +42,7 @@
   <div class="field">
     <label for="call-number" class="label">Phone</label>
     <div class="control">
-      <input id="call-number" class="input" type="tel" placeholder="(317) 867-5309" bind:value={phoneNumber}>
+      <input id="call-number" class="input" type="tel" placeholder="e.g (317) 867-5309" bind:value={phoneNumber}>
     </div>
   </div>
 
@@ -50,7 +50,7 @@
   <div class="field">
     <label for="call-duration" class="label">Call Duration</label>
     <div class="control">
-      <input id="call-duration" class="input" type="text" placeholder="15:00" bind:value={talkTime}>
+      <input id="call-duration" class="input" type="text" placeholder="e.g 15:00" bind:value={talkTime}>
     </div>
   </div>
 
@@ -66,7 +66,7 @@
   <div class="field">
     <label for="call-name" class="label">Name</label>
     <div class="control">
-      <input id="call-name" class="input" type="text" placeholder={randomName} bind:value={callerName}>
+      <input id="call-name" class="input" type="text" placeholder={`e.g ${randomName}`} bind:value={callerName}>
     </div>
   </div>
 
@@ -74,17 +74,17 @@
   <div class="field">
     <label for="call-description" class="label">Description</label>
     <div class="control">
-      <input id="call-description" class="input" type="text" placeholder="Existing ticket..." bind:value={description}>
+      <input id="call-description" class="input" type="text" placeholder="e.g Existing ticket 12345" bind:value={description}>
     </div>
   </div>
 
   <!-- Submit or Cancel Buttons -->
   <div class="field is-grouped">
     <div class="control">
-      <button class="button is-link">Submit</button>
+      <input class="button is-link" type="submit" value="Add">
     </div>
     <div class="control">
-      <button on:click={reset} class="button is-link is-light">Cancel</button>
+      <input on:click={reset} class="button is-link is-light" type="reset" value="Reset">
     </div>
   </div>
 </form>
