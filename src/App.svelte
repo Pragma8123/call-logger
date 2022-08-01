@@ -3,7 +3,9 @@
   import { signInWithPopup, GoogleAuthProvider, signOut, type User } from 'firebase/auth';
   import { authState } from 'rxfire/auth';
   import type { Observable } from 'rxjs';
-  import Profile from './lib/Profile.svelte';
+  import Navbar from './lib/Navbar.svelte';
+  import CallForm from './lib/CallForm.svelte';
+  import CallsTable from './lib/CallsTable.svelte';
 
   let user: Observable<User> = authState(auth);
 
@@ -17,26 +19,19 @@
 </script>
 
 <main>
+  <Navbar on:login={login} on:logout={logout} user={$user} />
   <section class="section">
     <div class="container">
-      <h1 class="title">
-        Hello World
-      </h1>
-      <p class="subtitle">
-        This website is powered by <strong>Bulma</strong>!
-      </p>
-      <p class="content">
-        {#if $user}
-        <Profile {...$user} />
-        <button on:click={logout} class="button is-primary">
-          Logout
-        </button>
-        {:else}
-        <button on:click={login} class="button is-primary">
-          Login
-        </button>
-        {/if}
-      </p>
+      {#if $user}
+      <div class="columns">
+        <div class="column">
+          <CallForm uid={$user.uid} />
+        </div>
+        <div class="column is-two-thirds">
+          <CallsTable uid={$user.uid} />
+        </div>
+      </div>
+      {/if}
     </div>
   </section>
 </main>
