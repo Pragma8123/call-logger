@@ -20,7 +20,7 @@ function toggleBurger(): void {
 }
 </script>
 
-<nav class="navbar is-primary has-shadow" aria-label="main navigation">
+<nav class="navbar is-light has-shadow" aria-label="main navigation">
   <div class="navbar-brand">
     <div class="navbar-item">
       <p class="title is-4">
@@ -39,20 +39,20 @@ function toggleBurger(): void {
     <div class="navbar-end">
       <div class="navbar-item">
         {#if user}
-        <button on:click={logout} class="button is-light">
-          Logout
-        </button>
-        {:else}
-        <button on:click={login} class="button is-light">
-          Log in
-        </button>
+        <figure class="image">
+          <img class="is-rounded" src={user.photoURL} alt="">
+        </figure>
         {/if}
       </div>
       <div class="navbar-item">
         {#if user}
-        <figure class="image">
-          <img class="is-rounded" src={user.photoURL} alt="">
-        </figure>
+        <button on:click={logout} class="button is-small is-rounded">
+          Logout
+        </button>
+        {:else}
+        <button on:click={login} class="button is-small is-rounded">
+          Login
+        </button>
         {/if}
       </div>
     </div>
