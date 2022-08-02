@@ -7,7 +7,9 @@
 
   export let uid: string;
 
-  const calls = collectionData(query(collection(db, 'calls'), where('uid', '==', uid), orderBy('date')), { idField: 'id'}).pipe(startWith([]));
+  const callsRef = query(collection(db, 'calls'), where('uid', '==', uid), orderBy('date', 'desc'));
+
+  const calls = collectionData(callsRef, { idField: 'id'}).pipe(startWith([]));
 
   function remove(event): void {
     deleteDoc(doc(db, 'calls', event.detail.id));
@@ -22,6 +24,7 @@
       <th>Date</th>
       <th>Name</th>
       <th>Description</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
