@@ -18,6 +18,7 @@
   function submit(): void {
     addDoc(collection(db, 'calls'), {
       callerName,
+      created: Date.now(),
       date,
       description,
       phoneNumber,
