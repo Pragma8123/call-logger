@@ -1,4 +1,5 @@
 <script lang="ts">
+  import 'bulma';
   import { auth } from './firebase';
   import { signInWithPopup, GoogleAuthProvider, signOut, type User } from 'firebase/auth';
   import { authState } from 'rxfire/auth';
