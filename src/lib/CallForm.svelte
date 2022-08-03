@@ -52,7 +52,7 @@
         size="20"
         minlength="9"
         maxlength="20"
-        placeholder="e.g (317) 867-5309"
+        placeholder="e.g (555) 867-5309"
         required>
     </div>
   </div>
