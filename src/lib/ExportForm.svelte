@@ -1,9 +1,5 @@
 <script lang="ts">
-
-
-function submit(): void {
-
-}
+  function submit(): void {}
 </script>
 
 <form on:submit|preventDefault={submit}>

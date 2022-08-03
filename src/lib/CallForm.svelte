@@ -1,15 +1,19 @@
 <script lang="ts">
-  import { uniqueNamesGenerator, type Config, starWars } from 'unique-names-generator';
+  import {
+    uniqueNamesGenerator,
+    type Config,
+    starWars,
+  } from 'unique-names-generator';
   import { addDoc, collection } from 'firebase/firestore';
   import { db } from '../firebase';
 
   export let uid: string;
 
-  let callerName: string    = '';
-  let date: string          = '';
-  let description: string   = '';
-  let phoneNumber: string   = '';
-  let talkTime: string      = '';
+  let callerName: string = '';
+  let date: string = '';
+  let description: string = '';
+  let phoneNumber: string = '';
+  let talkTime: string = '';
 
   const uniqueNameConfig: Config = {
     dictionaries: [starWars],
@@ -31,11 +35,11 @@
 
   function reset(): void {
     phoneNumber = '';
-    talkTime    = '';
-    date        = '';
-    callerName  = '';
+    talkTime = '';
+    date = '';
+    callerName = '';
     description = '';
-    randomName  = uniqueNamesGenerator(uniqueNameConfig);
+    randomName = uniqueNamesGenerator(uniqueNameConfig);
   }
 </script>
 
@@ -53,12 +57,12 @@
         minlength="9"
         maxlength="20"
         placeholder="e.g (555) 867-5309"
-        required>
+        required
+      />
     </div>
   </div>
 
   <div class="columns">
-
     <!-- Call Duration -->
     <div class="column">
       <div class="field">
@@ -73,7 +77,8 @@
             minlength="2"
             maxlength="6"
             placeholder="e.g 15:00"
-            required>
+            required
+          />
         </div>
       </div>
     </div>
@@ -83,7 +88,13 @@
       <div class="field">
         <label for="call-date" class="label">Date</label>
         <div class="control">
-          <input id="call-date" class="input" type="date" bind:value={date} required>
+          <input
+            id="call-date"
+            class="input"
+            type="date"
+            bind:value={date}
+            required
+          />
         </div>
       </div>
     </div>
@@ -102,7 +113,8 @@
         minlength="2"
         maxlength="50"
         placeholder={`e.g ${randomName}`}
-        required>
+        required
+      />
     </div>
   </div>
 
@@ -118,17 +130,23 @@
         size="100"
         maxlength="100"
         placeholder="e.g Existing ticket 12345"
-        required>
+        required
+      />
     </div>
   </div>
 
   <!-- Submit or Cancel Buttons -->
   <div class="field is-grouped">
     <div class="control">
-      <input class="button is-link is-rounded" type="submit" value="Add">
+      <input class="button is-link is-rounded" type="submit" value="Add" />
     </div>
     <div class="control">
-      <input on:click={reset} class="button is-link is-light is-rounded" type="reset" value="Reset">
+      <input
+        on:click={reset}
+        class="button is-link is-light is-rounded"
+        type="reset"
+        value="Reset"
+      />
     </div>
   </div>
 </form>

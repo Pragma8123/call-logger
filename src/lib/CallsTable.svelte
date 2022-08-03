@@ -1,5 +1,12 @@
 <script lang="ts">
-  import { collection, doc, where, query, orderBy, deleteDoc } from 'firebase/firestore';
+  import {
+    collection,
+    doc,
+    where,
+    query,
+    orderBy,
+    deleteDoc,
+  } from 'firebase/firestore';
   import { collectionData } from 'rxfire/firestore';
   import { startWith } from 'rxjs/operators';
   import { db } from '../firebase';
@@ -7,9 +14,13 @@
 
   export let uid: string;
 
-  const callsRef = query(collection(db, 'calls'), where('uid', '==', uid), orderBy('date', 'desc'));
+  const callsRef = query(
+    collection(db, 'calls'),
+    where('uid', '==', uid),
+    orderBy('date', 'desc'),
+  );
 
-  const calls = collectionData(callsRef, { idField: 'id'}).pipe(startWith([]));
+  const calls = collectionData(callsRef, { idField: 'id' }).pipe(startWith([]));
 
   function remove(event): void {
     deleteDoc(doc(db, 'calls', event.detail.id));
@@ -29,7 +40,7 @@
   </thead>
   <tbody>
     {#each $calls as call}
-    <CallItem on:remove={remove} {...call} />
+      <CallItem on:remove={remove} {...call} />
     {/each}
   </tbody>
 </table>

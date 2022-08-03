@@ -24,45 +24,63 @@
 
 <nav class="navbar is-link is-light has-shadow" aria-label="main navigation">
   <div class="navbar-brand">
-    <div class="navbar-item">
-      Call Logs
-    </div>
+    <div class="navbar-item">Call Logs</div>
 
-    <button on:click={toggleBurger} class:is-active={burgerActive} class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarPrimary">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
+    <button
+      on:click={toggleBurger}
+      class:is-active={burgerActive}
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarPrimary"
+    >
+      <span aria-hidden="true" />
+      <span aria-hidden="true" />
+      <span aria-hidden="true" />
     </button>
   </div>
 
   <div id="navbarPrimary" class="navbar-menu" class:is-active={burgerActive}>
     <div class="navbar-start">
-      <a on:click={() => exportModalActive = true} class="navbar-item" href="#export">
+      <a
+        on:click={() => (exportModalActive = true)}
+        class="navbar-item"
+        href="#export"
+      >
         Export
       </a>
     </div>
 
     <div class="navbar-end">
       {#if user}
-      <div class="navbar-item">
-        <figure class="image">
-          <img class="is-rounded" src={user.photoURL} alt="">
-        </figure>
-      </div>
+        <div class="navbar-item">
+          <figure class="image">
+            <img class="is-rounded" src={user.photoURL} alt="" />
+          </figure>
+        </div>
       {/if}
       <div class="navbar-item">
         {#if user}
-        <button on:click={logout} class="button is-small is-rounded is-link is-light">
-          Logout
-        </button>
+          <button
+            on:click={logout}
+            class="button is-small is-rounded is-link is-light"
+          >
+            Logout
+          </button>
         {:else}
-        <button on:click={login} class="button is-small is-rounded is-link is-light">
-          Login
-        </button>
+          <button
+            on:click={login}
+            class="button is-small is-rounded is-link is-light"
+          >
+            Login
+          </button>
         {/if}
       </div>
     </div>
   </div>
 </nav>
 
-<ExportModal on:close={() => exportModalActive = false} active={exportModalActive} />
+<ExportModal
+  on:close={() => (exportModalActive = false)}
+  active={exportModalActive}
+/>
