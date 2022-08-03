@@ -1,31 +1,31 @@
 <script lang="ts">
-import { createEventDispatcher } from 'svelte';
-import type { User } from 'firebase/auth';
+  import { createEventDispatcher } from 'svelte';
+  import type { User } from 'firebase/auth';
+  import ExportModal from './ExportModal.svelte';
 
-export let user: User;
-let burgerActive: boolean = false;
+  export let user: User;
 
-const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
+  let burgerActive: boolean = false;
+  let exportModalActive: boolean = false;
 
-function login(): void {
-  dispatch('login');
-}
+  function login(): void {
+    dispatch('login');
+  }
 
-function logout(): void {
-  dispatch('logout');
-}
+  function logout(): void {
+    dispatch('logout');
+  }
 
-function toggleBurger(): void {
-  burgerActive = !burgerActive;
-}
+  function toggleBurger(): void {
+    burgerActive = !burgerActive;
+  }
 </script>
 
-<nav class="navbar is-light has-shadow" aria-label="main navigation">
+<nav class="navbar is-link is-light has-shadow" aria-label="main navigation">
   <div class="navbar-brand">
     <div class="navbar-item">
-      <p class="title is-4">
-        Call Logs
-      </p>
+      Call Logs
     </div>
 
     <button on:click={toggleBurger} class:is-active={burgerActive} class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarPrimary">
@@ -36,21 +36,27 @@ function toggleBurger(): void {
   </div>
 
   <div id="navbarPrimary" class="navbar-menu" class:is-active={burgerActive}>
+    <div class="navbar-start">
+      <a on:click={() => exportModalActive = true} class="navbar-item" href="#export">
+        Export
+      </a>
+    </div>
+
     <div class="navbar-end">
+      {#if user}
       <div class="navbar-item">
-        {#if user}
         <figure class="image">
           <img class="is-rounded" src={user.photoURL} alt="">
         </figure>
-        {/if}
       </div>
+      {/if}
       <div class="navbar-item">
         {#if user}
-        <button on:click={logout} class="button is-small is-rounded">
+        <button on:click={logout} class="button is-small is-rounded is-link is-light">
           Logout
         </button>
         {:else}
-        <button on:click={login} class="button is-small is-rounded">
+        <button on:click={login} class="button is-small is-rounded is-link is-light">
           Login
         </button>
         {/if}
@@ -58,3 +64,5 @@ function toggleBurger(): void {
     </div>
   </div>
 </nav>
+
+<ExportModal on:close={() => exportModalActive = false} active={exportModalActive} />
