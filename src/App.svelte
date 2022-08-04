@@ -26,7 +26,9 @@
       {#if $user}
       <div class="columns">
         <div class="column">
-          <CallForm uid={$user.uid} />
+          <div class="box">
+            <CallForm uid={$user.uid} />
+          </div>
         </div>
         <div class="column is-two-thirds">
           <CallsTable uid={$user.uid} />
