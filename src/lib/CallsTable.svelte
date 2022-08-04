@@ -17,7 +17,7 @@
   const callsRef = query(
     collection(db, 'calls'),
     where('uid', '==', uid),
-    orderBy('date', 'desc'),
+    orderBy('created', 'desc'),
   );
 
   const calls = collectionData(callsRef, { idField: 'id' }).pipe(startWith([]));
@@ -27,7 +27,7 @@
   }
 </script>
 
-<table class="table">
+<table class="table box">
   <thead>
     <tr>
       <th>Phone Number</th>
