@@ -11,6 +11,7 @@
 
   function login(): void {
     dispatch('login');
+    burgerActive = false;
   }
 
   function logout(): void {
@@ -53,21 +54,15 @@
       </div>
 
       <div class="navbar-end">
-        {#if user}
-          <div class="navbar-item">
-            <figure class="image">
-              <img class="is-rounded" src={user.photoURL} alt="" />
-            </figure>
-          </div>
-        {/if}
         <div class="navbar-item">
           {#if user}
-            <button
+            <a
+              href="/"
               on:click={logout}
               class="button is-small is-rounded is-link is-light"
             >
               Logout
-            </button>
+            </a>
           {:else}
             <button
               on:click={login}
