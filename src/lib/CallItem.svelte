@@ -22,5 +22,10 @@
   <td>{date}</td>
   <td>{callerName}</td>
   <td>{description}</td>
-  <td><button on:click={remove} class="button is-danger is-light is-small is-rounded">🗑️</button></td>
+  <td>
+    <button
+      on:click={remove}
+      class="button is-danger is-light is-small is-rounded">🗑️</button
+    >
+  </td>
 </tr>
