@@ -51,7 +51,7 @@
       <input
         bind:value={phoneNumber}
         id="call-number"
-        class="input"
+        class="input is-size-7-touch"
         type="tel"
         size="20"
         minlength="9"
@@ -66,12 +66,14 @@
     <!-- Call Duration -->
     <div class="column">
       <div class="field">
-        <label for="call-duration" class="label">Call Duration</label>
+        <label for="call-duration" class="label">
+          <abbr title="Call Duration">Duration</abbr>
+        </label>
         <div class="control">
           <input
             bind:value={talkTime}
             id="call-duration"
-            class="input"
+            class="input is-size-7-touch"
             type="text"
             size="10"
             minlength="2"
@@ -90,7 +92,7 @@
         <div class="control">
           <input
             id="call-date"
-            class="input"
+            class="input is-size-7-touch"
             type="date"
             bind:value={date}
             required
@@ -107,7 +109,7 @@
       <input
         bind:value={callerName}
         id="call-name"
-        class="input"
+        class="input is-size-7-touch"
         type="text"
         size="50"
         minlength="2"
@@ -125,7 +127,7 @@
       <input
         bind:value={description}
         id="call-description"
-        class="input"
+        class="input is-size-7-touch"
         type="text"
         size="100"
         maxlength="100"
@@ -138,12 +140,16 @@
   <!-- Submit or Cancel Buttons -->
   <div class="field is-grouped">
     <div class="control">
-      <input class="button is-link is-rounded" type="submit" value="Add" />
+      <input
+        class="button is-link is-rounded is-size-7-touch"
+        type="submit"
+        value="Add"
+      />
     </div>
     <div class="control">
       <input
         on:click={reset}
-        class="button is-link is-light is-rounded"
+        class="button is-link is-light is-rounded is-size-7-touch"
         type="reset"
         value="Reset"
       />
