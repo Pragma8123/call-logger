@@ -27,7 +27,7 @@
   }
 </script>
 
-<table class="table box">
+<table class="table">
   <thead>
     <tr>
       <th>Phone Number</th>
