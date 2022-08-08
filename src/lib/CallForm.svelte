@@ -138,21 +138,21 @@
   </div>
 
   <!-- Submit or Cancel Buttons -->
-  <div class="field is-grouped">
+  <div class="field">
     <div class="control">
-      <input
-        class="button is-link is-rounded is-size-7-touch"
-        type="submit"
-        value="Add"
-      />
-    </div>
-    <div class="control">
-      <input
-        on:click={reset}
-        class="button is-link is-light is-rounded is-size-7-touch"
-        type="reset"
-        value="Reset"
-      />
+      <div class="buttons has-addons">
+        <input
+          class="button is-link is-rounded is-size-7-touch"
+          type="submit"
+          value="Add"
+        />
+        <input
+          on:click={reset}
+          class="button is-link is-light is-rounded is-size-7-touch"
+          type="reset"
+          value="Reset"
+        />
+      </div>
     </div>
   </div>
 </form>
