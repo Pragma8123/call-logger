@@ -26,7 +26,9 @@
 <nav class="navbar is-link is-light has-shadow" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
-      <div class="navbar-item">Call Logs</div>
+      <div class="navbar-item">
+        <strong class="title is-5 has-text-white">Call Logs</strong>
+      </div>
 
       <button
         on:click={toggleBurger}
