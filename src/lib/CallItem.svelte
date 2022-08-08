@@ -1,6 +1,5 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import { fade } from 'svelte/transition';
 
   export let id: string;
   export let phoneNumber: string;
@@ -16,12 +15,18 @@
   }
 </script>
 
-<tr transition:fade>
+<tr>
   <td>{phoneNumber}</td>
   <td>{talkTime}</td>
   <td>{date}</td>
   <td>{callerName}</td>
-  <td>{description}</td>
+  <td>
+    {#if description.length > 20}
+      <abbr title={description}>{description.slice(0, 20) + '...'}</abbr>
+    {:else}
+      {description}
+    {/if}
+  </td>
   <td>
     <button
       on:click={remove}
