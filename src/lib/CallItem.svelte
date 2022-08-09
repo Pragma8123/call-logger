@@ -1,5 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
+  import Fa from 'svelte-fa';
+  import { faTrash, faPencil } from '@fortawesome/free-solid-svg-icons';
 
   export let id: string;
   export let phoneNumber: string;
@@ -35,7 +37,7 @@
         disabled
       >
         <span class="icon">
-          <i class="fas fa-pencil" />
+          <Fa icon={faPencil} />
         </span>
       </button>
       <button
@@ -44,7 +46,7 @@
         title="Delete"
       >
         <span class="icon">
-          <i class="fas fa-trash" />
+          <Fa icon={faTrash} />
         </span>
       </button>
     </p>

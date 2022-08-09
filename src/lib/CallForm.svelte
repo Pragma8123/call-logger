@@ -5,6 +5,14 @@
     starWars,
   } from 'unique-names-generator';
   import { addDoc, collection } from 'firebase/firestore';
+  import Fa from 'svelte-fa';
+  import {
+    faPhone,
+    faClock,
+    faCalendar,
+    faUser,
+    faClipboard,
+  } from '@fortawesome/free-solid-svg-icons';
   import { db } from '../firebase';
 
   export let uid: string;
@@ -60,7 +68,7 @@
         required
       />
       <span class="icon is-small is-left">
-        <i class="fas fa-phone" />
+        <Fa icon={faPhone} />
       </span>
     </div>
   </div>
@@ -85,7 +93,7 @@
             required
           />
           <span class="icon is-small is-left">
-            <i class="fas fa-clock" />
+            <Fa icon={faClock} />
           </span>
         </div>
       </div>
@@ -104,7 +112,7 @@
             required
           />
           <span class="icon is-small is-left">
-            <i class="fas fa-calendar" />
+            <Fa icon={faCalendar} />
           </span>
         </div>
       </div>
@@ -127,7 +135,7 @@
         required
       />
       <span class="icon is-small is-left">
-        <i class="fas fa-user" />
+        <Fa icon={faUser} />
       </span>
     </div>
   </div>
@@ -147,7 +155,7 @@
         required
       />
       <span class="icon is-small is-left">
-        <i class="fas fa-clipboard" />
+        <Fa icon={faClipboard} />
       </span>
     </div>
   </div>

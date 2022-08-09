@@ -1,7 +1,5 @@
 <script lang="ts">
   import 'bulma';
-  import '@fortawesome/fontawesome-free/js/fontawesome';
-  import '@fortawesome/fontawesome-free/js/solid';
   import { auth } from './firebase';
   import { signInWithPopup, GoogleAuthProvider, signOut, type User } from 'firebase/auth';
   import { authState } from 'rxfire/auth';

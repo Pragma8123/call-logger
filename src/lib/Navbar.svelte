@@ -1,6 +1,8 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import type { User } from 'firebase/auth';
+  import { faUser, faHeadset } from '@fortawesome/free-solid-svg-icons';
+  import Fa from 'svelte-fa';
   import ExportModal from './ExportModal.svelte';
 
   export let user: User;
@@ -29,7 +31,7 @@
       <div class="navbar-item">
         <span class="icon-text">
           <span class="icon">
-            <i class="fas fa-headset" />
+            <Fa icon={faHeadset} size="lg" />
           </span>
           <span>
             <strong class="title is-5 has-text-white">Call Logs</strong>
@@ -71,7 +73,7 @@
               class="button is-small is-rounded is-link is-light"
             >
               <span class="icon">
-                <i class="fas fa-user" />
+                <Fa icon={faUser} />
               </span>
               <span><strong>Log Out</strong></span>
             </a>
@@ -81,7 +83,7 @@
               class="button is-small is-rounded is-link is-light"
             >
               <span class="icon">
-                <i class="fas fa-user" />
+                <Fa icon={faUser} />
               </span>
               <span><strong>Log In</strong></span>
             </button>
