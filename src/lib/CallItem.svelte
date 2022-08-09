@@ -35,7 +35,7 @@
         disabled
       >
         <span class="icon">
-          <i class="fas fa-pencil"></i>
+          <i class="fas fa-pencil" />
         </span>
       </button>
       <button
@@ -44,7 +44,7 @@
         title="Delete"
       >
         <span class="icon">
-          <i class="fas fa-trash"></i>
+          <i class="fas fa-trash" />
         </span>
       </button>
     </p>
