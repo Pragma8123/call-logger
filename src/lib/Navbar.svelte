@@ -27,7 +27,14 @@
   <div class="container">
     <div class="navbar-brand">
       <div class="navbar-item">
-        <strong class="title is-5 has-text-white">Call Logs</strong>
+        <span class="icon-text">
+          <span class="icon">
+            <i class="fas fa-headset" />
+          </span>
+          <span>
+            <strong class="title is-5 has-text-white">Call Logs</strong>
+          </span>
+        </span>
       </div>
 
       <button
