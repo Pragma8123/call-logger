@@ -28,9 +28,25 @@
     {/if}
   </td>
   <td>
-    <button
-      on:click={remove}
-      class="button is-danger is-light is-small is-rounded">🗑️</button
-    >
+    <p class="buttons">
+      <button
+        class="button is-warning is-outlined is-small is-rounded"
+        title="Edit"
+        disabled
+      >
+        <span class="icon">
+          <i class="fas fa-pencil"></i>
+        </span>
+      </button>
+      <button
+        on:click={remove}
+        class="button is-danger is-outlined is-small is-rounded"
+        title="Delete"
+      >
+        <span class="icon">
+          <i class="fas fa-trash"></i>
+        </span>
+      </button>
+    </p>
   </td>
 </tr>
