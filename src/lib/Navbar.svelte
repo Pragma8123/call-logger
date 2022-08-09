@@ -58,20 +58,26 @@
       <div class="navbar-end">
         <div class="navbar-item">
           {#if user}
-            <a
-              href="/"
-              on:click={logout}
-              class="button is-small is-rounded is-link is-light"
-            >
-              Logout
-            </a>
+          <a
+            href="/"
+            on:click={logout}
+            class="button is-small is-rounded is-link is-light"
+          >
+            <span class="icon">
+              <i class="fas fa-user"></i>
+            </span>
+            <span>Log Out</span>
+          </a>
           {:else}
-            <button
-              on:click={login}
-              class="button is-small is-rounded is-link is-light"
-            >
-              Login
-            </button>
+          <button
+            on:click={login}
+            class="button is-small is-rounded is-link is-light"
+          >
+            <span class="icon">
+              <i class="fas fa-user"></i>
+            </span>
+            <span>Log In</span>
+          </button>
           {/if}
         </div>
       </div>
