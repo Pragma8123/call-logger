@@ -47,7 +47,7 @@
   <!-- Phone Number -->
   <div class="field">
     <label for="call-number" class="label">Phone</label>
-    <div class="control">
+    <div class="control has-icons-left">
       <input
         bind:value={phoneNumber}
         id="call-number"
@@ -59,6 +59,9 @@
         placeholder="e.g (555) 867-5309"
         required
       />
+      <span class="icon is-small is-left">
+        <i class="fas fa-phone" />
+      </span>
     </div>
   </div>
 
@@ -69,7 +72,7 @@
         <label for="call-duration" class="label">
           <abbr title="Call Duration">Duration</abbr>
         </label>
-        <div class="control">
+        <div class="control has-icons-left">
           <input
             bind:value={talkTime}
             id="call-duration"
@@ -81,6 +84,9 @@
             placeholder="e.g 15:00"
             required
           />
+          <span class="icon is-small is-left">
+            <i class="fas fa-clock" />
+          </span>
         </div>
       </div>
     </div>
@@ -89,7 +95,7 @@
     <div class="column">
       <div class="field">
         <label for="call-date" class="label">Date</label>
-        <div class="control">
+        <div class="control has-icons-left">
           <input
             id="call-date"
             class="input is-rounded is-size-7-touch"
@@ -97,6 +103,9 @@
             bind:value={date}
             required
           />
+          <span class="icon is-small is-left">
+            <i class="fas fa-calendar" />
+          </span>
         </div>
       </div>
     </div>
@@ -105,7 +114,7 @@
   <!-- Name -->
   <div class="field">
     <label for="call-name" class="label">Name</label>
-    <div class="control">
+    <div class="control has-icons-left">
       <input
         bind:value={callerName}
         id="call-name"
@@ -117,13 +126,16 @@
         placeholder={`e.g ${randomName}`}
         required
       />
+      <span class="icon is-small is-left">
+        <i class="fas fa-user" />
+      </span>
     </div>
   </div>
 
   <!-- Description -->
   <div class="field">
     <label for="call-description" class="label">Description</label>
-    <div class="control">
+    <div class="control has-icons-left">
       <input
         bind:value={description}
         id="call-description"
@@ -134,6 +146,9 @@
         placeholder="e.g Existing ticket 12345"
         required
       />
+      <span class="icon is-small is-left">
+        <i class="fas fa-clipboard" />
+      </span>
     </div>
   </div>
 
