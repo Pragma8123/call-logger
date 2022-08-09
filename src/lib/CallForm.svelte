@@ -51,7 +51,7 @@
   }
 </script>
 
-<form on:submit|preventDefault={submit}>
+<form on:submit|preventDefault={submit} on:reset|preventDefault={reset}>
   <!-- Phone Number -->
   <div class="field">
     <label for="call-number" class="label">Phone</label>
@@ -171,7 +171,6 @@
     </div>
     <div class="control">
       <input
-        on:click={reset}
         class="button is-link is-light is-rounded is-size-7-touch"
         type="reset"
         value="Reset"
