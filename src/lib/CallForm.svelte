@@ -51,7 +51,7 @@
       <input
         bind:value={phoneNumber}
         id="call-number"
-        class="input is-size-7-touch"
+        class="input is-rounded is-size-7-touch"
         type="tel"
         size="20"
         minlength="9"
@@ -73,7 +73,7 @@
           <input
             bind:value={talkTime}
             id="call-duration"
-            class="input is-size-7-touch"
+            class="input is-rounded is-size-7-touch"
             type="text"
             size="10"
             minlength="2"
@@ -92,7 +92,7 @@
         <div class="control">
           <input
             id="call-date"
-            class="input is-size-7-touch"
+            class="input is-rounded is-size-7-touch"
             type="date"
             bind:value={date}
             required
@@ -109,7 +109,7 @@
       <input
         bind:value={callerName}
         id="call-name"
-        class="input is-size-7-touch"
+        class="input is-rounded is-size-7-touch"
         type="text"
         size="50"
         minlength="2"
@@ -127,7 +127,7 @@
       <input
         bind:value={description}
         id="call-description"
-        class="input is-size-7-touch"
+        class="input is-rounded is-size-7-touch"
         type="text"
         size="100"
         maxlength="100"
