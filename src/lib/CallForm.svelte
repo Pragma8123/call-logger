@@ -28,6 +28,9 @@
   };
   let randomName: string = uniqueNamesGenerator(uniqueNameConfig);
 
+  // Initialize our fields on mount
+  reset();
+
   function submit(): void {
     addDoc(collection(db, 'calls'), {
       callerName,
@@ -44,7 +47,7 @@
   function reset(): void {
     phoneNumber = '';
     talkTime = '';
-    date = '';
+    date = new Date().toISOString().slice(0, 10);
     callerName = '';
     description = '';
     randomName = uniqueNamesGenerator(uniqueNameConfig);
