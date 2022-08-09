@@ -73,7 +73,7 @@
               <span class="icon">
                 <i class="fas fa-user" />
               </span>
-              <span>Log Out</span>
+              <span><strong>Log Out</strong></span>
             </a>
           {:else}
             <button
@@ -83,7 +83,7 @@
               <span class="icon">
                 <i class="fas fa-user" />
               </span>
-              <span>Log In</span>
+              <span><strong>Log In</strong></span>
             </button>
           {/if}
         </div>
