@@ -1,6 +1,7 @@
 <script lang="ts">
   import 'bulma';
-  import { auth } from './firebase';
+  import { auth, analytics } from './firebase';
+  import { logEvent } from 'firebase/analytics';
   import { signInWithPopup, GoogleAuthProvider, signOut, type User } from 'firebase/auth';
   import { authState } from 'rxfire/auth';
   import type { Observable } from 'rxjs';
@@ -12,10 +13,12 @@
 
   function login(): void {
     signInWithPopup(auth, new GoogleAuthProvider());
+    logEvent(analytics, 'login');
   }
 
   function logout(): void {
     signOut(auth);
+    logEvent(analytics, 'logout');
   }
 </script>
 
