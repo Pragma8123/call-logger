@@ -73,15 +73,15 @@
     </thead>
     <tbody>
       {#each $calls as call}
-      <CallItem
-        on:remove={remove}
-        id={call.id}
-        phoneNumber={call.phoneNumber}
-        talkTime={call.talkTime}
-        date={call.date}
-        callerName={call.callerName}
-        description={call.description}
-      />
+        <CallItem
+          on:remove={remove}
+          id={call.id}
+          phoneNumber={call.phoneNumber}
+          talkTime={call.talkTime}
+          date={call.date}
+          callerName={call.callerName}
+          description={call.description}
+        />
       {/each}
     </tbody>
   </table>
