@@ -1,6 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import Fa from 'svelte-fa';
+  import { fade } from 'svelte/transition';
   import { faTrash, faPencil } from '@fortawesome/free-solid-svg-icons';
 
   export let id: string;
@@ -17,7 +18,7 @@
   }
 </script>
 
-<tr>
+<tr in:fade>
   <td>{phoneNumber}</td>
   <td>{talkTime}</td>
   <td>{date}</td>
