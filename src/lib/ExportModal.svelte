@@ -69,8 +69,6 @@
           </div>
         </div>
       </div>
-      <p>startDate: {startDate}</p>
-      <p>endDate: {endDate}</p>
     </section>
     <footer class="modal-card-foot">
       <div class="buttons has-addons">
