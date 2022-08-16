@@ -88,9 +88,7 @@
 </div>
 
 <div class="buttons has-addons">
-  <button on:click={loadMore} class="button is-link is-light is-rounded"
-    >More</button
-  >
+  <button on:click={loadMore} class="button is-link is-rounded">More</button>
   <button
     on:click={loadLess}
     class="button is-link is-light is-rounded"
