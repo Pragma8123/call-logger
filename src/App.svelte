@@ -33,8 +33,8 @@
       where('uid', '==', $user.uid),
       where('date', '>=', startDate),
       where('date', '<=', endDate),
-      orderBy('date', 'desc'),
-      orderBy('created', 'desc'),
+      orderBy('date', 'asc'),
+      orderBy('created', 'asc'),
     ));
 
     let data: string = '';
