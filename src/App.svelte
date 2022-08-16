@@ -39,7 +39,7 @@
 
     let data: string = '';
     calls.forEach((call) => data += formatCall(call.data()));
-    downloadFile(`${startDate}_${endDate}.txt`, data);
+    downloadFile(`CallLogs_${startDate}_${endDate}.txt`, data);
   }
 </script>
 
