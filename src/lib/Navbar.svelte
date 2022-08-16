@@ -3,13 +3,11 @@
   import type { User } from 'firebase/auth';
   import { faUser, faHeadset } from '@fortawesome/free-solid-svg-icons';
   import Fa from 'svelte-fa';
-  import ExportModal from './ExportModal.svelte';
 
   export let user: User;
 
   const dispatch = createEventDispatcher();
   let burgerActive: boolean = false;
-  let exportModalActive: boolean = false;
 
   function login(): void {
     dispatch('login');
@@ -18,6 +16,10 @@
 
   function logout(): void {
     dispatch('logout');
+  }
+
+  function showExportModal(): void {
+    dispatch('showExportModal');
   }
 
   function toggleBurger(): void {
@@ -55,11 +57,7 @@
 
     <div id="navbarPrimary" class="navbar-menu" class:is-active={burgerActive}>
       <div class="navbar-start">
-        <a
-          on:click={() => (exportModalActive = true)}
-          class="navbar-item"
-          href="#export"
-        >
+        <a on:click={showExportModal} class="navbar-item" href="#export">
           Export
         </a>
       </div>
@@ -93,8 +91,3 @@
     </div>
   </div>
 </nav>
-
-<ExportModal
-  on:close={() => (exportModalActive = false)}
-  active={exportModalActive}
-/>
