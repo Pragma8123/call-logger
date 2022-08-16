@@ -52,7 +52,7 @@
     calls = collectionData(callsRef, { idField: 'id' }).pipe(startWith([]));
   }
 
-  function remove(event): void {
+  function remove(event: CustomEvent): void {
     deleteDoc(doc(db, 'calls', event.detail.id));
   }
 </script>
