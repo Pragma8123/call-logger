@@ -11,8 +11,8 @@
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "lint": "prettier --check --plugin-search-dir=. ./src/**/*.svelte ./src/**/*.ts",
     "lint:fix": "prettier --write --plugin-search-dir=. ./src/**/*.svelte ./src/**/*.ts",
-    "deploy:dev": "npm run build:dev && npm run lint && firebase deploy --project dev",
-    "deploy:prod": "npm run build:prod && npm run lint && firebase deploy --project prod"
+    "deploy:dev": "npm run lint && npm run build:dev && firebase deploy --project dev",
+    "deploy:prod": "npm run lint && npm run build:prod && firebase deploy --project prod"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.1",
