@@ -63,8 +63,18 @@
       </div>
 
       <div class="navbar-end">
-        <div class="navbar-item">
-          {#if user}
+        {#if user}
+          <div class="navbar-item">
+            <figure class="image is-24x24">
+              <img
+                src={user.photoURL}
+                alt={user.displayName}
+                title={user.displayName}
+                class="is-rounded"
+              />
+            </figure>
+          </div>
+          <div class="navbar-item">
             <a
               href="/"
               on:click={logout}
@@ -75,7 +85,9 @@
               </span>
               <span><strong>Log Out</strong></span>
             </a>
-          {:else}
+          </div>
+        {:else}
+          <div class="navbar-item">
             <button
               on:click={login}
               class="button is-small is-rounded is-link is-light"
@@ -85,8 +97,8 @@
               </span>
               <span><strong>Log In</strong></span>
             </button>
-          {/if}
-        </div>
+          </div>
+        {/if}
       </div>
     </div>
   </div>
