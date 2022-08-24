@@ -52,7 +52,7 @@
   <section class="section">
     <div class="container">
       {#if $user}
-      <div class="columns is-vcentered">
+      <div class="columns">
         <div class="column">
           <div class="box">
             <CallForm uid={$user.uid} />
