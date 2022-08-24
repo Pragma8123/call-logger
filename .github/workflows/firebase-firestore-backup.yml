@@ -21,4 +21,4 @@ jobs:
         credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CALL_LOGGER_PROD }}
     - uses: google-github-actions/setup-gcloud@v0
     - run: gcloud config set project $FIREBASE_PROJECT_ID
-    - run: gcloud firestore export $FIREBASE_STORAGE_BUCKET
+    - run: 'gcloud firestore export gs://$FIREBASE_STORAGE_BUCKET'
