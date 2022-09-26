@@ -50,7 +50,7 @@
     "bulma": "^0.9.4",
     "firebase": "^9.10.0",
     "rxfire": "^6.0.3",
-    "rxjs": "^7.5.6",
+    "rxjs": "^7.5.7",
     "unique-names-generator": "^4.7.1"
   }
 }
