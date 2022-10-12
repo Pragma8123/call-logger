@@ -31,7 +31,7 @@
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "^5.38.1",
     "babel-loader": "^8.2.5",
-    "firebase-tools": "^11.10.0",
+    "firebase-tools": "^11.14.1",
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.7.1",
     "sass": "^1.55.0",
