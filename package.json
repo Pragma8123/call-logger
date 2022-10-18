@@ -29,7 +29,7 @@
     "@sveltejs/vite-plugin-svelte": "^1.0.9",
     "@tsconfig/svelte": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.40.1",
-    "@typescript-eslint/parser": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.1",
     "babel-loader": "^8.2.5",
     "firebase-tools": "^11.14.4",
     "prettier": "^2.7.1",
