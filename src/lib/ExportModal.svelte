@@ -84,3 +84,13 @@
     </footer>
   </div>
 </div>
+
+<style global lang="sass">
+  @import "bulma/sass/utilities/_all"
+  @import "bulma/sass/components/modal"
+  @import "bulma/sass/grid/columns"
+  @import "bulma/sass/elements/button"
+  @import "bulma/sass/elements/icon"
+  @import "bulma/sass/elements/other"
+  @import "bulma/sass/form/_all"
+</style>

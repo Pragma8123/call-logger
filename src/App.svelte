@@ -1,5 +1,4 @@
 <script lang="ts">
-  import 'bulma';
   import { logEvent } from 'firebase/analytics';
   import { signInWithPopup, GoogleAuthProvider, signOut, type User } from 'firebase/auth';
   import { authState } from 'rxfire/auth';
@@ -72,3 +71,12 @@
   on:export={exportCalls}
   active={showExportModal}
 />
+
+<style global lang="sass">
+  @import "bulma/sass/base/_all.sass"
+  @import "bulma/sass/utilities/_all.sass"
+  @import "bulma/sass/grid/columns.sass"
+  @import "bulma/sass/layout/section.sass"
+  @import "bulma/sass/elements/box.sass"
+  @import "bulma/sass/elements/container.sass"
+</style>

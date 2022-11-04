@@ -181,3 +181,11 @@
     </div>
   </div>
 </form>
+
+<style global lang="sass">
+  @import "bulma/sass/utilities/_all"
+  @import "bulma/sass/helpers/_all"
+  @import "bulma/sass/form/_all"
+  @import "bulma/sass/elements/icon"
+  @import "bulma/sass/elements/button"
+</style>

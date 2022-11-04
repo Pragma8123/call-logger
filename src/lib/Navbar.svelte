@@ -103,3 +103,14 @@
     </div>
   </div>
 </nav>
+
+<style global lang="sass">
+  @import "bulma/sass/utilities/_all"
+  @import "bulma/sass/helpers/_all"
+  @import "bulma/sass/components/navbar"
+  @import "bulma/sass/elements/icon"
+  @import "bulma/sass/elements/image"
+  @import "bulma/sass/elements/button"
+  @import "bulma/sass/elements/container"
+  @import "bulma/sass/elements/title"
+</style>

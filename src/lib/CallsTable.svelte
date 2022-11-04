@@ -95,3 +95,9 @@
     disabled={pageSize <= 10}>Less</button
   >
 </div>
+
+<style global lang="sass">
+  @import "bulma/sass/utilities/_all"
+  @import "bulma/sass/helpers/_all"
+  @import "bulma/sass/elements/table"
+</style>
