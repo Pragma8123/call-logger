@@ -23,7 +23,7 @@
 </script>
 
 <div class="modal" class:is-active={active}>
-  <div on:click={close} class="modal-background" />
+  <div on:click={close} on:keypress={close} class="modal-background" />
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">Export Calls</p>
