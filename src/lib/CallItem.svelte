@@ -40,26 +40,30 @@
       {call.description}
     {/if}
   </td>
-  <p class="buttons" class:is-invisible={!buttonsVisible}>
-    <button
-      class="button is-inverted is-outlined is-small is-rounded"
-      title="Edit"
-      disabled
-    >
-      <span class="icon">
-        <Fa icon={faPencil} />
-      </span>
-    </button>
-    <button
-      on:click={remove}
-      class="button is-inverted is-outlined is-small is-rounded"
-      title="Delete"
-    >
-      <span class="icon">
-        <Fa icon={faTrash} />
-      </span>
-    </button>
-  </p>
+  <div class="field has-addons" class:is-invisible={!buttonsVisible}>
+    <p class="control">
+      <button
+        class="button is-inverted is-outlined is-small is-rounded"
+        title="Edit"
+        disabled
+      >
+        <span class="icon">
+          <Fa icon={faPencil} />
+        </span>
+      </button>
+    </p>
+    <p class="control">
+      <button
+        on:click={remove}
+        class="button is-inverted is-outlined is-small is-rounded"
+        title="Delete"
+      >
+        <span class="icon">
+          <Fa icon={faTrash} />
+        </span>
+      </button>
+    </p>
+  </div>
 </tr>
 
 <style global lang="sass">
