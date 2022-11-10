@@ -32,9 +32,9 @@
   <td>{call.date}</td>
   <td>{call.callerName}</td>
   <td>
-    {#if call.description.length > 20}
+    {#if call.description.length > 35}
       <abbr title={call.description}>
-        {call.description.slice(0, 20) + '...'}
+        {call.description.slice(0, 32) + '...'}
       </abbr>
     {:else}
       {call.description}
