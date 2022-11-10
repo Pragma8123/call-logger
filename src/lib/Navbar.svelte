@@ -57,9 +57,11 @@
 
     <div id="navbarPrimary" class="navbar-menu" class:is-active={burgerActive}>
       <div class="navbar-start">
-        <a on:click={showExportModal} class="navbar-item" href="#export">
-          Export
-        </a>
+        {#if user}
+          <a on:click={showExportModal} class="navbar-item" href="#export">
+            Export
+          </a>
+        {/if}
       </div>
 
       <div class="navbar-end">
