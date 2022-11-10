@@ -4,54 +4,62 @@
   import { fade } from 'svelte/transition';
   import { faTrash, faPencil } from '@fortawesome/free-solid-svg-icons';
 
-  export let id: string;
-  export let phoneNumber: string;
-  export let talkTime: string;
-  export let date: string;
-  export let callerName: string;
-  export let description: string;
+  export let call = {
+    id: '',
+    phoneNumber: '',
+    talkTime: '',
+    date: '',
+    callerName: '',
+    description: '',
+  };
+
+  let buttonsVisible: boolean = false;
 
   const dispatch = createEventDispatcher();
 
   function remove() {
-    dispatch('remove', { id });
+    dispatch('remove', { id: call.id });
   }
 </script>
 
-<tr in:fade>
-  <td>{phoneNumber}</td>
-  <td>{talkTime}</td>
-  <td>{date}</td>
-  <td>{callerName}</td>
+<tr
+  in:fade
+  on:mouseenter={() => (buttonsVisible = true)}
+  on:mouseleave={() => (buttonsVisible = false)}
+>
+  <td>{call.phoneNumber}</td>
+  <td>{call.talkTime}</td>
+  <td>{call.date}</td>
+  <td>{call.callerName}</td>
   <td>
-    {#if description.length > 20}
-      <abbr title={description}>{description.slice(0, 20) + '...'}</abbr>
+    {#if call.description.length > 20}
+      <abbr title={call.description}>
+        {call.description.slice(0, 20) + '...'}
+      </abbr>
     {:else}
-      {description}
+      {call.description}
     {/if}
   </td>
-  <td>
-    <p class="buttons">
-      <button
-        class="button is-warning is-outlined is-small is-rounded"
-        title="Edit"
-        disabled
-      >
-        <span class="icon">
-          <Fa icon={faPencil} />
-        </span>
-      </button>
-      <button
-        on:click={remove}
-        class="button is-danger is-outlined is-small is-rounded"
-        title="Delete"
-      >
-        <span class="icon">
-          <Fa icon={faTrash} />
-        </span>
-      </button>
-    </p>
-  </td>
+  <p class="buttons" class:is-invisible={!buttonsVisible}>
+    <button
+      class="button is-inverted is-outlined is-small is-rounded"
+      title="Edit"
+      disabled
+    >
+      <span class="icon">
+        <Fa icon={faPencil} />
+      </span>
+    </button>
+    <button
+      on:click={remove}
+      class="button is-inverted is-outlined is-small is-rounded"
+      title="Delete"
+    >
+      <span class="icon">
+        <Fa icon={faTrash} />
+      </span>
+    </button>
+  </p>
 </tr>
 
 <style global lang="sass">
