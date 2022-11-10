@@ -70,7 +70,7 @@
             <figure class="image is-24x24">
               <img
                 src={user.photoURL}
-                alt={user.displayName}
+                alt=""
                 title={user.displayName}
                 class="is-rounded"
               />
