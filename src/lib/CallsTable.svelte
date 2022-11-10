@@ -1,59 +1,18 @@
 <script lang="ts">
-  import {
-    collection,
-    doc,
-    where,
-    query,
-    orderBy,
-    deleteDoc,
-    limit,
-  } from 'firebase/firestore';
-  import { collectionData } from 'rxfire/firestore';
-  import { startWith } from 'rxjs/operators';
-  import { db } from '../firebase';
+  import type { Observable } from 'rxjs';
+  import { createEventDispatcher } from 'svelte';
   import CallItem from './CallItem.svelte';
 
-  export let uid: string;
+  export let calls: Observable<any[]>;
 
-  let pageSize: number = 10;
-
-  let callsRef = query(
-    collection(db, 'calls'),
-    where('uid', '==', uid),
-    orderBy('created', 'desc'),
-    limit(pageSize),
-  );
-
-  let calls = collectionData(callsRef, { idField: 'id' }).pipe(startWith([]));
+  const dispatch = createEventDispatcher();
 
   function loadMore(): void {
-    pageSize += 10;
-
-    callsRef = query(
-      collection(db, 'calls'),
-      where('uid', '==', uid),
-      orderBy('created', 'desc'),
-      limit(pageSize),
-    );
-
-    calls = collectionData(callsRef, { idField: 'id' }).pipe(startWith([]));
+    dispatch('more');
   }
 
   function loadLess(): void {
-    pageSize -= 10;
-
-    callsRef = query(
-      collection(db, 'calls'),
-      where('uid', '==', uid),
-      orderBy('created', 'desc'),
-      limit(pageSize),
-    );
-
-    calls = collectionData(callsRef, { idField: 'id' }).pipe(startWith([]));
-  }
-
-  function remove(event: CustomEvent): void {
-    deleteDoc(doc(db, 'calls', event.detail.id));
+    dispatch('less');
   }
 </script>
 
@@ -68,31 +27,22 @@
         <th>Date</th>
         <th>Name</th>
         <th>Description</th>
-        <th>Modify</th>
       </tr>
     </thead>
     <tbody>
       {#each $calls as call}
-        <CallItem
-          on:remove={remove}
-          id={call.id}
-          phoneNumber={call.phoneNumber}
-          talkTime={call.talkTime}
-          date={call.date}
-          callerName={call.callerName}
-          description={call.description}
-        />
+        <CallItem on:remove {call} />
       {/each}
     </tbody>
   </table>
 </div>
 
-<div class="buttons has-addons">
+<div class="buttons has-addons is-right">
   <button on:click={loadMore} class="button is-link is-rounded">More</button>
   <button
     on:click={loadLess}
     class="button is-link is-light is-rounded"
-    disabled={pageSize <= 10}>Less</button
+    disabled={$calls.length <= 10}>Less</button
   >
 </div>
 
@@ -100,4 +50,5 @@
   @import "bulma/sass/utilities/_all"
   @import "bulma/sass/helpers/_all"
   @import "bulma/sass/elements/table"
+  @import "bulma/sass/elements/button"
 </style>

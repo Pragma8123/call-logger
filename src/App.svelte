@@ -2,8 +2,9 @@
   import { logEvent } from 'firebase/analytics';
   import { signInWithPopup, GoogleAuthProvider, signOut, type User } from 'firebase/auth';
   import { authState } from 'rxfire/auth';
-  import { getDocs, query, collection, where, orderBy } from 'firebase/firestore';
-  import type { Observable } from 'rxjs';
+  import { getDocs, query, collection, where, orderBy, limit, deleteDoc, doc } from 'firebase/firestore';
+  import { collectionData } from 'rxfire/firestore';
+  import { startWith, type Observable } from 'rxjs';
   import { auth, analytics, db } from './firebase';
   import Navbar from './lib/Navbar.svelte';
   import CallForm from './lib/CallForm.svelte';
@@ -13,6 +14,8 @@
 
   let user: Observable<User> = authState(auth);
   let showExportModal: boolean = false;
+  let callCount: number = 10; // Initially load 10 calls
+  let calls: Observable<any[]>;
 
   function login(): void {
     signInWithPopup(auth, new GoogleAuthProvider());
@@ -22,6 +25,10 @@
   function logout(): void {
     signOut(auth);
     logEvent(analytics, 'logout');
+  }
+
+  function deleteCall(event: CustomEvent): void {
+    deleteDoc(doc(db, 'calls', event.detail.id));
   }
 
   async function exportCalls(event: CustomEvent): Promise<void> {
@@ -40,6 +47,28 @@
     calls.forEach((call) => data += formatCall(call.data()));
     downloadFile(`CallLogs_${startDate}_${endDate}.txt`, data);
   }
+
+  function loadMore(): void {
+    callCount += 10;
+  }
+
+  function loadLess(): void {
+    callCount -= 10;
+  }
+
+  $: {
+    if ($user) {
+      calls = collectionData(
+        query(
+          collection(db, 'calls'),
+          where('uid', '==', $user.uid),
+          orderBy('created', 'desc'),
+          limit(callCount),
+        ),
+        { idField: 'id' },
+      ).pipe(startWith([]));
+    }
+  }
 </script>
 
 <main>
@@ -51,14 +80,21 @@
   <section class="section">
     <div class="container">
       {#if $user}
-      <div class="columns">
-        <div class="column">
+      <div class="columns is-desktop">
+        <div class="column is-half-tablet is-one-third-desktop">
           <div class="box">
             <CallForm uid={$user.uid} />
           </div>
         </div>
-        <div class="column is-two-thirds">
-          <CallsTable uid={$user.uid} />
+        <div class="column is-two-thirds-desktop">
+          <div class="box">
+            <CallsTable
+              on:more={loadMore}
+              on:less={loadLess}
+              on:remove={deleteCall}
+              {calls}
+            />
+          </div>
         </div>
       </div>
       {/if}
