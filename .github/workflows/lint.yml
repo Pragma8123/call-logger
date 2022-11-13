@@ -1,0 +1,27 @@
+---
+name: Linting
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+jobs:
+  pre-commit-ci:
+    name: Pre-Commit
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out codebase
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/gallium
+          cache: 'npm'
+      
+      - name: Install NPM packages
+        run: npm ci
+
+      - name: Run lint/styling tests
+        run: npm run lint
