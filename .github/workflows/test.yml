@@ -1,5 +1,5 @@
 ---
-name: Linting
+name: Linting & Testing
 on:
   pull_request:
   push:
@@ -25,3 +25,6 @@ jobs:
 
       - name: Run lint/styling tests
         run: npm run lint
+
+      - name: Run functional tests
+        run: npm run test
